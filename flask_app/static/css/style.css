@@ -1,0 +1,86 @@
+.test {
+background-image: url("./images/background_anime.jpg");
+    /* background-image: url("../images/background_anime.jpg"); */
+background-size: cover; /* This will cover the entire viewport */
+background-repeat: no-repeat; /* Prevents the image from repeating in case it's too small for the container */
+ background-position: center center; /*Centers the image */
+} 
+
+.op{
+    background-color: rgba(132, 142, 141, 0.5) !important;
+}
+
+.test2 {
+    background-image: url("./images/border12.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+    min-height: 10px; /* This ensures that the background image covers the full viewport height */
+}
+
+.op2 {
+    background-color: rgba(44, 25, 184, 0.5);
+    padding: 20px; /* Adding padding to give some space */
+    border-radius: 10px; /* Rounded corners for a smoother look */
+    box-shadow: 0 4px 8px rgba(52, 50, 50, 0.1); /* A subtle shadow to lift the element a bit */
+}
+
+/* Additional styling for form elements and buttons */
+.form-label {
+    color: rgba(72, 39, 191, 0.8); /* Making label text a bit darker for better readability against the light background */
+    font-weight: 700;
+}
+
+.btn {
+    margin-right: 10px; /* Adding some spacing between buttons */
+}
+.h4{
+    font-style: oblique;
+    color: rgba(44, 25, 184, 0.5);
+}
+.test3 {
+    background-image: url("./images/add_anime.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+    min-height: 100vh; /* This ensures that the background image covers the full viewport height */
+}
+
+.card {
+    background-color: rgba(255, 255, 255, 0.7);
+    border: none;
+    backdrop-filter: blur(10px); /* Adding blur will create a frosted glass effect */
+}
+.test5 {
+    background-image: url("./images/anime9.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+    min-height: 100vh;  /* Cover full viewport height */
+    display: flex;      /* Using Flexbox */
+    align-items: center;/* Vertically align to center */
+    justify-content: center; /* Horizontally align to center */
+}
+
+.op5 {
+    border: solid black;
+    background-color: rgba(255, 255, 255, 0.8); 
+    /* padding: 20px;  Adjust padding as per your content */
+    border-radius: 88px; 
+    width: 180px; /* Optional, if you want to control the width */
+    padding-right: 90px;
+    padding-left: 90px;
+    margin:0 auto;
+}
+.test6 {
+    background-image: url("./images/animewall.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+    min-height: 100vh;  /* Cover full viewport height */
+    display: flex;      /* Using Flexbox */
+    align-items: center;/* Vertically align to center */
+    justify-content: center; /* Horizontally align to center */
+}
+
+

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Show Animes</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}">
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        /* Custom CSS for centering content */
+
+
+        .center-content {
+            /* display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center; */
+            text-align: center;
+        }
+
+        /* Custom CSS for medium-sized labels */
+        .medium-label {
+            max-width: 300px; /* Or any other suitable value */
+            margin: 0 auto;   /* Centering the label */
+        }
+
+        .card {
+        border: 1px solid black;  /* Add black border */
+        border-radius: 5px;       /* Slightly rounded corners */
+        box-shadow: 0 4px 8px (rgba(0, 0, 0, 0.1));
+        background-color: #e6b3b3;  /* This is a light gray color */
+        }
+
+    </style>
+</head>
+
+<body class="bg-light center-content test2">
+    <div class="container">
+        <h1 class="my-4">Animes</h1>
+        <h4 class="mb-4">a site to track Added new Animes</h4>
+        <div>
+            <a href="/dashboard" class="btn btn-primary mx-2">Dashboard</a>
+            <a href="/logout" class="btn btn-primary mx-2">Logout</a>
+        </div>
+
+        <div class=" row mt-4 ">
+            {% for this_anime in all_animes %}
+            <div class="card mb-3 medium-label">
+                <div class="card-body">
+                    <h5 class="card-title">name: {{ this_anime.name }}</h5>
+                    <p class="card-text">Description: {{ this_anime.description }}</p>
+                    <p class="card-text">Date Added:{{this_anime.date_added}}</p>
+                    <p class="card-text">Quality:{{this_anime.quality}}</p>
+                    <a href="/edit/{{this_anime.id}}" class="btn btn-warning">Edit</a>
+                    <!-- Delete form for the anime -->
+                    <form action="/anime/delete/{{this_anime.id}}" method="POST" style="display: inline;">
+                        <input type="submit" value="Delete" class="btn btn-danger">
+                    </form>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</body>
+
+</html>

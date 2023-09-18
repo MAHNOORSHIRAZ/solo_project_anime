@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Anime</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}">
+    <link href='https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css' rel='stylesheet'>
+
+    <style>
+        .card {
+            background-color: rgba(255, 255, 255, 0.7);
+            border: black;
+            backdrop-filter: blur(3px);
+            max-width: 600px; /* set the maximum width */
+            margin: auto;     /* center the card */
+        }
+    </style>
+
+
+
+</head>
+<!-- <body class="bg-light"> -->
+    <body class="test3 bg-dark text-light">
+    <div class="container mt-5">
+        <div id="nav" class="text-center mb-5">
+            <h1>Add An Anime!</h1>
+            <a href="/animes" class="btn btn-info me-2">Back to Animes</a>
+            <a href="/logout" class="btn btn-danger">Logout</a>
+        </div>
+
+        <div class="card p-4 ">
+            <form action="/anime/add_to_db" method="POST">
+                <div class="mb-3">
+                    {% with messages = get_flashed_messages() %}
+                        {% if messages %}
+                            <div class="alert alert-danger">
+                                {% for message in messages %}
+                                    <p>{{message}}</p>
+                                {% endfor %}
+                            </div>
+                        {% endif %}
+                    {% endwith %}
+                </div>
+
+                <input type="hidden" name="user_id" value="{{logged_user.id}}">
+                <div class="mb-3">
+                    <label for="name" class="form-label">Name</label>
+                    <input type="text" name="name" id="name" class="form-control">
+                </div>
+
+                <div class="mb-3">
+                    <label for="description" class="form-label">Description</label>
+                    <textarea name="description" id="description" class="form-control"></textarea>
+                </div>
+
+                <div class="mb-3">
+                    <label for="quality" class="form-label">Quality</label>
+                    <textarea name="quality" id="quality" class="form-control" ></textarea>
+                </div>
+
+                <div class="mb-3">
+                    <label for="date_added" class="form-label">Date Added</label>
+                    <input type="date" name="date_added" id="date_added" class="form-control">
+                </div>
+
+                <button type="submit" class="btn btn-primary">Add</button>
+            </form>
+        </div>
+    </div>
+</body>
+</html>

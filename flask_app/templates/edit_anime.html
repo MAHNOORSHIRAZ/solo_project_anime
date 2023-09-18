@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}">
+    <!-- Linking to Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <title>Edit Anime</title>
+    <style>
+        /* Custom CSS for centering content and setting medium label width */
+        .center-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+        }
+
+        .medium-label {
+            max-width: 300px; /* Adjust to desired width */
+            margin: 0 auto;   /* Centering the label */
+        }
+    </style>
+</head>
+
+<body class="bg-light center-content">
+    <div class="container my-4">
+        <nav class="mb-4">
+            <h1>Edit Anime!</h1>
+            <div>
+                <a href="/dashboard" class="btn btn-primary mx-2">Dashboard</a>
+                <a href="/logout" class="btn btn-danger mx-2">Logout</a>
+                <a href="/user/account" class="btn btn-secondary mx-2">My Animes</a>
+            </div>
+        </nav>
+        
+        <form action="/anime/edit/{{this_anime.id}}" method="post" class="medium-label">
+            <div>
+                {% with messages = get_flashed_messages() %}
+                    {% if messages %}
+                        {% for message in messages %}
+                            <p class="alert alert-danger">{{message}}</p>
+                        {% endfor %}
+                    {% endif %}
+                {% endwith %}
+            </div>
+
+            <input type="hidden" name="id" value="{{this_anime.id}}">
+            
+            <div class="form-group">
+                <label for="name">Name</label>
+                <input type="text" name="name" value="{{this_anime.name}}" class="form-control">
+            </div>
+            
+            <div class="form-group">
+                <label for="description">Description</label>
+                <input name="description" id="description" value=" {{this_anime.description}}" class="form-control">
+            </div>
+
+            <div class="form-group">
+                <label for="quality">Quality</label>
+                <input name="quality" id="quality" value="{{this_anime.quality}}" class="form-control">
+            </div>
+            
+            <div class="form-group">
+                <label for="date_added">Date Added:</label>
+                <input type="date" id="date_added" name="date_added" class="form-control">
+            </div>
+            
+            <div class="form-group">
+                <input type="submit" value="Submit" class="btn btn-success">
+                <button type="submit" class="btn btn-primary">Update</button>
+            </div>
+        </form>
+    </div>
+</body>
+
+</html>

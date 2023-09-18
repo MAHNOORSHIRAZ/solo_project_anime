@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}">
+
+    <style>
+        body {
+            font-style:italic; 
+        }
+
+        .custom-card {
+            box-shadow: 0 4px 8px rgba(77, 75, 75, 0.1); /* Adding a subtle shadow */
+            padding: 50px;
+            border-radius: 40px; /* Rounded edges for the card */
+            border: 2px solid #0d0d0d; /* Light gray border */
+            margin-left: auto;
+            width: 65%;
+            margin-right: 0;
+        }
+    </style>
+
+    {% block head %}
+    <title>{% block title %}{% endblock %} - Anime Details</title>
+    {% endblock %}
+</head>
+
+<body class="text-center bg-light">
+
+    <div class="container mt-5 test6">
+
+        <!-- Card Container -->
+        <div class="custom-card bg-white text-left">
+            <h1 class="mb-3">Posted Anime</h1>
+            <h4 class="mb-4">A site to track randomly posted Animes</h4>
+            | <a href="/logout" class="btn btn-primary me-2">Logout</a> |
+            | <a href="/dashboard" class="btn btn-primary me-2">Dashboard</a> |
+            | <a href="/user/account" class="btn btn-primary me-2">My Animes</a> |
+
+            <div id="content">
+                {% block content %}
+                <h2>Anime Details</h2>
+                <p>
+                    <strong>{{animes.name}} posted by {{ animes.user.first_name }} {{ animes.user.last_name }}</strong><br>
+                    <strong>Description:</strong> {{ animes.description }}<br>
+                    <strong>Quality:</strong> {{animes.quality}}<br>
+                    <strong>Date Added:</strong> {{ animes.date_added }}<br>
+                </p>
+                {% endblock %}
+            </div>
+        </div>
+    </div>
+</body>
+</html>
